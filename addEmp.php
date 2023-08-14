@@ -134,8 +134,9 @@ if(isset($_POST['create']))
     $contact=$_POST['contact'];
 
     $file=$_FILES['file']['name']; 
+    $user_id = $_SESSION['userId'];
 
-    $sql="insert into ems(firstName,lastName,contact,filename) values('$fname','$lname','$contact','$file')";
+    $sql="insert into ems(firstName,lastName,contact,filename,userId) values('$fname','$lname','$contact','$file','$user_id')";
     if(mysqli_query($conn,$sql))
     {
         move_uploaded_file($_FILES['file']['tmp_name'],"uploads/$file");

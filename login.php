@@ -127,6 +127,7 @@ session_start();
         {
             $row = mysqli_fetch_assoc($result);
             $_SESSION['username'] = $row['username'];
+            $_SESSION['userId'] = $row['userId'];
             header("Location: dashboard.php");
         }
         else

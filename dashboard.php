@@ -6,7 +6,8 @@
     {
         echo "Connection Error: ".mysqli_connect_error();
     }
-    $dis="select * from ems";
+    $user_id = $_SESSION['userId'];
+    $dis="select * from ems where userId = $user_id";
     $res=mysqli_query($conn,$dis);
     $disp=mysqli_fetch_all($res,MYSQLI_ASSOC);
 
@@ -130,6 +131,16 @@
     </div>
     </div> -->
 
+    <?php
+        if(isset($_SESSION['message'])):
+    ?>
+    <div class="alert alert-<?=$_SESSION['msg_type']?>">
+        <?php
+            echo $_SESSION['message'];
+            unset($_SESSION['message']);
+        ?>
+    </div>
+    <?php endif ?>
 
     <!--panel body-->
     <div class="container my-4">
@@ -142,17 +153,7 @@
         </div>
     </div>
 
-    <?php
-        if(isset($_SESSION['message'])):
-    ?>
-    <div class="alert alert-<?=$_SESSION['msg_type']?>">
-        <?php
-            echo $_SESSION['message'];
-            unset($_SESSION['message']);
-        ?>
-    </div>
-    <?php endif ?>
-
+    
     <div class="container my-4">  
     <table class="table">
     <thead>
@@ -167,6 +168,7 @@
     </thead>
     <tbody>
     <?php
+    if(count($disp)>0) {
         foreach ($disp as $i)
         {
             echo "<tr id=".$i['srNo'].">
@@ -190,7 +192,11 @@
             </tr>";
         }
         echo "</table>";
-        ?>
+    }
+    else{
+        echo '<table><tr><center>No data available</center><tr></table>';
+    }
+    ?>
         
     </tbody>
     </table>

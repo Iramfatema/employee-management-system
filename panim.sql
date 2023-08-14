@@ -62,7 +62,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`userId`, `username`, `email`, `password`) VALUES
-(1, 'Nafisa', 'nafisa@gmail.com', '163275495234ef33b52c6b5c519cf3bb'),
+(1, 'Nafisa', 'nafisa@gmail.com', 'Okgoogle'),
 (2, 'Shafique', 'shaf@gmailcom', 'Okpass'),
 (3, 'Khadija', 'khadi@gmail.com', 'Khadija'),
 (4, 'Steffany', 'steff@gmail.com', '1234'),
@@ -100,6 +100,9 @@ ALTER TABLE `ems`
 --
 ALTER TABLE `user`
   MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  
+ALTER TABLE `ems`
+  add `userId` int(11) NOT NULL DEFAULT 1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
