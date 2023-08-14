@@ -176,7 +176,7 @@
             <td>".$i['firstName']."</td>
             <td>".$i['lastName']."</td>
             <td>".$i['contact']."</td>
-            <td><img src='";
+            <td><object data='";
             echo "uploads/".$i['filename'];
             echo "' width='200' height='150'></td>
             <td>

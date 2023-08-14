@@ -124,7 +124,7 @@
                         </div>
                         <div class="col-lg-3 col-md-12 col-sm-12">
                         <label for="contact" class="form-label">Upload File:</label><br>
-                        <input type="file" class="file-control" id="file" name="file"><img src="uploads/<?php echo $filename;?>" width='200' height='150'>
+                        <input type="file" class="file-control" id="file" name="file"><p> <?php echo $filename;?></p>
                         <input type="hidden" name="old_file" value="<?php echo $filename;?>">
                         </div>
                         <br>
